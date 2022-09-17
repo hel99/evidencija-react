@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import axios from 'axios'
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
@@ -10,6 +12,27 @@ const Register = () => {
         password: '',
         phone_number: ''
     })
+
+
+    const register = () => {
+
+        axios.post("http://localhost:8000/api/register", zaposleni).then(res => {
+
+            if (res.data.status == 200)
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Register message',
+                    text: 'You have been successfully registered!'
+                })
+            else
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Register message',
+                    text: 'Error!'
+                })
+
+        });
+    }
 
 
     return (
@@ -53,7 +76,7 @@ const Register = () => {
                         onChange={e => setZaposleni({ ...zaposleni, phone_number: e.target.value })} />
                 </div>
 
-                <button className="btn btn-dark">Register</button>
+                <button onClick={register} className="btn btn-dark">Register</button>
 
             </div>
 
