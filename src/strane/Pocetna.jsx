@@ -13,7 +13,7 @@ const Pocetna = () => {
 
                 <div className="dloginfield">
                     <span>Password</span>
-                    <input type='email' className="form-control mt-1" placeholder="Please enter your password" />
+                    <input type='password' className="form-control mt-1" placeholder="Please enter your password" />
                 </div>
 
                 <button className="btn btn-dark">Log in</button>
