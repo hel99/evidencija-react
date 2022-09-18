@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Pocetna = () => {
 
+    if (localStorage.getItem('email'))
+        navigate('/welcome')
+
     const [zaposleni, setZaposleni] = useState({
         email: '',
         password: ''
@@ -13,8 +16,6 @@ const Pocetna = () => {
 
     const navigate = useNavigate()
 
-    if (localStorage.getItem('email'))
-        navigate('/welcome')
 
 
     const login = () => {
@@ -30,6 +31,20 @@ const Pocetna = () => {
 
 
                 axios.get(`http://localhost:8000/api/check-login/${res.data.id}`).then(res => {
+                    if (res.data.brojKasnjenjaZaposleni % 3 == 0) {
+                        const options = {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json',
+                                'X-RapidAPI-Key': '4916172c11msh0beee19c8846ca4p127267jsn0bc7bcd7fc43',
+                                'X-RapidAPI-Host': 'hourmailer.p.rapidapi.com'
+                            },
+                            body: '{"toAddress":"' + zaposleni.email + '","title":"Opomena","message":"Postovani/a,<br/><br/>Obavestavamo vas da ste u prethodnom periodu zakasnili sa prijavom na IT sistem ' + res.data.brojKasnjenjaZaposleni + ' puta. Molimo vas da se u narednom periodu prijavljujete svakog dana od 8:00-8:30h kako ne biste dosli u sitaciju da budete kaznjeni.<br/><br/> Srdacan pozdrav.<br/>IT-SPACE-DEV Team"}'
+                        };
+
+                        fetch('https://hourmailer.p.rapidapi.com/send', options)
+
+                    }
 
                 });
 
