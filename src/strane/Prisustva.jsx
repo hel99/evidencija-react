@@ -8,7 +8,7 @@ const Prisustva = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8000/api/prisustva`).then(res => {
+        axios.get("http://localhost:8000/api/prisustva").then(res => {
             setPrisustva(res.data.prisustva)
         });
 

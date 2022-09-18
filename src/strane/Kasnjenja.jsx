@@ -8,18 +8,19 @@ const Kasnjenja = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8000/api/kasnjenja`).then(res => {
+        axios.get("http://localhost:8000/api/kasnjenja").then(res => {
             setKasnjenja(res.data.kasnjenja)
         });
 
     }, []);
 
+    console.log(kasnjenja)
 
 
     var body = '';
     body = kasnjenja.map((k) => {
         return (
-            <tr key={k.id}>
+            <tr key={k.prijava}>
                 <td>{k.first_name}</td>
                 <td>{k.last_name}</td>
                 <td>{k.email}</td>
