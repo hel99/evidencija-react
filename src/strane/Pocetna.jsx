@@ -26,10 +26,20 @@ const Pocetna = () => {
                     icon: 'info',
                     title: 'Login message',
                     text: 'You have been successfully logged in!'
-                })
+                });
+
+
+                axios.get(`http://localhost:8000/api/check-login/${res.data.id}`).then(res => {
+
+                });
+
+
 
                 localStorage.setItem('email', zaposleni.email)
-                navigate('/welcome')
+                if (localStorage.getItem('email') == 'admin@it.com')
+                    navigate('/admin-dashboard')
+                else
+                    navigate('/welcome')
 
             }
             else

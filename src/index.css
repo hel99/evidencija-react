@@ -46,3 +46,14 @@
   margin-left: 800px;
   margin-top: 40px;
 }
+
+.nav-m {
+  padding-top: 20px;
+  padding-left: 650px;
+}
+
+.nav-m-link{
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 40px;
+}
