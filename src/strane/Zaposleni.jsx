@@ -5,6 +5,7 @@ import Nav from '../komponente/Nav';
 const Zaposleni = () => {
 
     const [zaposleni, setZaposleni] = useState([])
+    const [srcInput, setSrcInput] = useState('')
 
     useEffect(() => {
 
@@ -15,6 +16,19 @@ const Zaposleni = () => {
     }, []);
 
 
+    const handleSrcInput = (e) => {
+        setSrcInput(e.target.value)
+    }
+
+    const search = () => {
+        axios.get(`http://localhost:8000/api/zaposleni-search/${srcInput}`).then(res => {
+            setZaposleni(res.data.zaposleni)
+        });
+    }
+
+
+
+    console.log(srcInput)
 
     var body = '';
     body = zaposleni.map((z) => {
@@ -41,6 +55,8 @@ const Zaposleni = () => {
 
                 <h1 id='p-n'>Zaposleni</h1>
 
+                <input type="text" onChange={e => { handleSrcInput(e); search() }} className='form-control' id='src' placeholder='Unesite ime | prezime | email | broj telefona' />
+
                 <table className="table table-primary text-center">
 
                     <thead>
@@ -62,9 +78,7 @@ const Zaposleni = () => {
 
 
 
-
-
-        </div>
+        </div >
     )
 }
 
