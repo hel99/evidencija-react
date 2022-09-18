@@ -9,10 +9,6 @@ import Zaposleni from "./strane/Zaposleni";
 
 function App() {
 
-  console.log("u 4 se poziva ka serveru i kupi kod svih zaposlenih, da li im je $login false, ako jeste dodaje im odsustvo")
-
-  var date = new Date()
-  console.log(date)
 
   return (
     <div className="App">
