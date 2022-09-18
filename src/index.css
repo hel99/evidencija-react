@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 
 * {
-  background-color: aliceblue;
+  background-color: #f0f8ff;
   margin: 0;
   padding: 0;
   font-family: 'Arvo', serif;
@@ -54,6 +54,7 @@
 
 .nav-m-link{
   text-decoration: none;
+  color: black;
   margin-left: 30px;
   font-size: 40px;
 }
@@ -65,6 +66,7 @@
 }
 
 #p-n{
+  margin-top: 70px;
   margin-bottom: 20px;
-  margin-left: 600px;
+  margin-left: 650px;
 }

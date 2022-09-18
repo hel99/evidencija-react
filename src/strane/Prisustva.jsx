@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Nav from '../komponente/Nav';
 
 const Prisustva = () => {
 
@@ -33,12 +34,14 @@ const Prisustva = () => {
     return (
         <div>
 
+            <Nav />
+
             <div className='prisustva-t'>
 
                 <h1 id='p-n'>Prisustva</h1>
 
                 <table className="table table-primary text-center">
-                    
+
                     <thead>
                         <tr>
                             <th>Ime</th>
