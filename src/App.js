@@ -4,7 +4,7 @@ import Register from "./strane/Register";
 function App() {
   return (
     <div className="App">
-      <Register />
+      <Pocetna />
     </div>
   );
 }
