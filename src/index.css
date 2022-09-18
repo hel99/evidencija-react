@@ -83,3 +83,9 @@
   width: 200px;
   margin-bottom: -50px;
 }
+
+#admin-logout-button{
+  font-size: 22px;
+  margin-top: -17px;
+  margin-left: 450px;
+}
