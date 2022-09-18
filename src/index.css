@@ -33,3 +33,16 @@
 #reg{
   color: #999999;
 }
+
+#wtt{
+  margin-left: 280px;
+  margin-top: 200px;
+  font-size: 70px;
+}
+
+#lgt{
+  width: 250px;
+  font-size: 40px;
+  margin-left: 800px;
+  margin-top: 40px;
+}

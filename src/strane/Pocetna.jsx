@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Pocetna = () => {
@@ -10,6 +10,11 @@ const Pocetna = () => {
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate()
+
+    if (localStorage.getItem('email'))
+        navigate('/welcome')
 
 
     const login = () => {
@@ -24,6 +29,8 @@ const Pocetna = () => {
                 })
 
                 localStorage.setItem('email', zaposleni.email)
+                navigate('/welcome')
+
             }
             else
                 Swal.fire({
