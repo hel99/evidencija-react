@@ -9,7 +9,7 @@
 
 .dlogin {
   width: 500px;
-  margin-top: 250px;
+  margin-top: 150px;
   margin-left: 700px;
 }
 
@@ -28,4 +28,8 @@
   width: 500px;
   margin-top: 50px;
   margin-left: 700px;
+}
+
+#reg{
+  color: #999999;
 }

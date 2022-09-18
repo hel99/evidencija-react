@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 
 const Register = () => {
@@ -13,17 +14,23 @@ const Register = () => {
         phone_number: ''
     })
 
+    const navigate = useNavigate();
+
+
+
 
     const register = () => {
 
         axios.post("http://localhost:8000/api/register", zaposleni).then(res => {
 
-            if (res.data.status == 200)
+            if (res.data.status == 200) {
                 Swal.fire({
                     icon: 'info',
                     title: 'Register message',
                     text: 'You have been successfully registered!'
                 })
+                navigate('/')
+            }
             else
                 Swal.fire({
                     icon: 'info',

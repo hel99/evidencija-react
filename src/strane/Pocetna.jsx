@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 
 const Pocetna = () => {
@@ -38,6 +39,7 @@ const Pocetna = () => {
     return (
         <div>
 
+            <h1 id="it-space-dev">IT-SPACE-DEV</h1>
 
             <div className="dlogin text-center">
                 <div className="dloginfield">
@@ -60,7 +62,7 @@ const Pocetna = () => {
 
                 <br />
 
-                <p className="text-muted mt-2">If you don't have an account, please <b><i><u>register</u></i></b>.</p>
+                <p className="text-muted mt-2">If you don't have an account, please <b><i><u><Link to="/register" id='reg'>register</Link></u></i></b>.</p>
 
             </div>
 
