@@ -6,6 +6,7 @@ const Zaposleni = () => {
 
     const [zaposleni, setZaposleni] = useState([])
     const [srcInput, setSrcInput] = useState('')
+    const [sortiranje, setSortiranje] = useState('ASC')
 
     useEffect(() => {
 
@@ -27,8 +28,14 @@ const Zaposleni = () => {
     }
 
 
+    const sort = () => {
+        axios.get(`http://localhost:8000/api/zaposleni-sort/${sortiranje}`).then(res => {
+            setZaposleni(res.data.zaposleni)
+            setSortiranje(res.data.sortiranje)
+        });
+    }
 
-    console.log(srcInput)
+
 
     var body = '';
     body = zaposleni.map((z) => {
@@ -56,6 +63,8 @@ const Zaposleni = () => {
                 <h1 id='p-n'>Zaposleni</h1>
 
                 <input type="text" onChange={e => { handleSrcInput(e); search() }} className='form-control' id='src' placeholder='Unesite ime | prezime | email | broj telefona' />
+                <button onClick={sort} className='btn btn-secondary' id='sort-button'>SORT</button>
+
 
                 <table className="table table-primary text-center">
 

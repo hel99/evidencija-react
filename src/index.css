@@ -72,7 +72,14 @@
 }
 
 #src {
-  margin-bottom: 20px;
   width: 500px;
   margin-left: 515px;
+  margin-bottom: -12px;
+}
+
+#sort-button{
+  margin-top: -90px;
+  margin-left: 1260px;
+  width: 200px;
+  margin-bottom: -50px;
 }
