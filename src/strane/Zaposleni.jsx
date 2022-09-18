@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Nav from '../komponente/Nav';
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 const Zaposleni = () => {
 
     const [zaposleni, setZaposleni] = useState([])
     const [srcInput, setSrcInput] = useState('')
     const [sortiranje, setSortiranje] = useState('ASC')
+
+    const navigate = useNavigate()
+
 
     useEffect(() => {
 
@@ -20,6 +25,8 @@ const Zaposleni = () => {
     const handleSrcInput = (e) => {
         setSrcInput(e.target.value)
     }
+
+
 
     const search = () => {
         axios.get(`http://localhost:8000/api/zaposleni-search/${srcInput}`).then(res => {
@@ -36,6 +43,21 @@ const Zaposleni = () => {
     }
 
 
+    const deleteZaposleni = (idZaposleni) => {
+        axios.delete(`http://localhost:8000/api/zaposleni-delete/${idZaposleni}`).then(res => {
+            if (res.data.status == 200) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Delete message',
+                    text: 'User has been successfully deleted!'
+                })
+            }
+
+        });
+    }
+
+
+
 
     var body = '';
     body = zaposleni.map((z) => {
@@ -46,6 +68,7 @@ const Zaposleni = () => {
                 <td>{z.email}</td>
                 <td>{z.phone_number}</td>
                 <td>{z.kasnjenja}</td>
+                <td><button onClick={() => deleteZaposleni(z.id)} className='btn btn-light'>DELETE</button></td>
             </tr>
         )
     })
@@ -75,6 +98,7 @@ const Zaposleni = () => {
                             <th>Email</th>
                             <th>Broj telefona</th>
                             <th>Broj kašnjenja</th>
+                            <th></th>
                         </tr>
                     </thead>
 
